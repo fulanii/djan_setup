@@ -1,7 +1,7 @@
 import os
 import subprocess
-from cli.cli import Cli
-from cli.console import console
+from cli import Cli
+from console import console
 
 def main():
     subprocess.run(["clear"])
@@ -14,5 +14,5 @@ def main():
     django_cli.entry()
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

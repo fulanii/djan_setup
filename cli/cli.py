@@ -3,7 +3,7 @@ import sys
 import subprocess
 import astor
 import ast
-from cli.console import console
+from console import console
 
 
 class Cli:
@@ -20,9 +20,9 @@ class Cli:
         Create a new Django project, return True if successful, False otherwise. 
         Project already exists if project already exists. 
         """
-
-        # Check if the project already exists
-        if not self.project_root:
+        
+        # check if a project already exists
+        if not os.path.exists(self.project_root):
             try:
                 import django
             except ImportError:
@@ -35,6 +35,16 @@ class Cli:
                 return False
         else:
             return "Project already exists."
+    
+    def _create_app(self) -> bool:
+        """ Create a new Django app, return True if successful, False otherwise. """
+        try:
+            os.chdir(self.project_root) 
+            subprocess.run([sys.executable, os.path.join(self.project_root, "manage.py"), "startapp", self.django_app_name], check=True)
+            return True
+        except Exception as e:
+            print("An error occurred while creating the Django app." + str(e))
+            return False
     
     def _create_project_util_files(self) -> None:
         """ 
@@ -65,18 +75,6 @@ class Cli:
             open(".env.prod", "a").close()
         except FileExistsError as e:
             print(f"An error occurred while creating the project utility files. {e}")
-
-    def _create_app(self) -> bool:
-        """ Create a new Django app, return True if successful, False otherwise. """
-
-        if self._create_project() == True:
-            try:
-                os.chdir(self.project_root) 
-                subprocess.run([sys.executable, os.path.join(self.project_root, "manage.py"), "startapp", self.django_app_name], check=True)
-                return True
-            except Exception as e:
-                print("An error occurred while creating the Django app." + str(e))
-                return False
 
     def _create_settings(self) -> None:
         """
@@ -199,13 +197,16 @@ class Cli:
 
     def entry(self):
         """ Main method that creates a Django project and app. """
-        if self._create_app():
-            console.print("Django project and app created successfully! ✅", style="bold on blue")
-            self._create_settings()
-            console.print("Settings folder created successfully! ✅", style="bold on blue")
-            self._update_base_setting()
-            console.print("Updated settings/base.py successfully! ✅", style="bold on blue")
-            self._update_dev_setting()
-            console.print("Updated settings/development.py successfully! ✅", style="bold on blue")
-            self._create_project_util_files()
-            console.print("Updated settings/production.py successfully! ✅", style="bold on blue")
+        
+        self._create_project()
+        self._create_app()
+        # console.print("Django project and app created successfully! ✅", style="bold on blue")
+        # self._create_settings()
+        # console.print("Settings folder created successfully! ✅", style="bold on blue")
+        # self._update_base_setting()
+        # console.print("Updated settings/base.py successfully! ✅", style="bold on blue")
+        # self._update_dev_setting()
+        # console.print("Updated settings/development.py successfully! ✅", style="bold on blue")
+        # self._create_project_util_files()
+        # console.print("Updated settings/production.py successfully! ✅", style="bold on blue")
+        

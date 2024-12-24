@@ -1,9 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='django_boilerplate',
+    name='Django Project Setup Tool',
     version='0.1.0',
-    packages=find_packages(),
     include_package_data=True,
     install_requires=[
         'click',
@@ -13,15 +12,16 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'django_boilerplate=script:main',
+            'new_django=cli.script:main',
         ],
     },
+    packages=find_packages(include=['cli', ]),
     author='Yassine',
     author_email='yassine@yassinecodes.dev',
-    description='A cli tool to setup django for you',
-    long_description=open('README.md').read(),
+    description='A CLI tool to set up Django projects for you',
+    long_description=open('readme.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/yourusername/django_boilerplate',
+    url='',  # Add repo URL
     classifiers=[
         'Programming Language :: Python :: 3',
         'Framework :: Django',
