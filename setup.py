@@ -15,13 +15,13 @@ setup(
             'new_django=cli.script:main',
         ],
     },
-    packages=find_packages(include=['cli', ]),
+    packages=find_packages(include=['cli', 'cli.*']),
     author='Yassine',
     author_email='yassine@yassinecodes.dev',
     description='A CLI tool to set up Django projects for you',
     long_description=open('readme.md').read(),
     long_description_content_type='text/markdown',
-    url='',  # Add repo URL
+    url='https://github.com/fulanii/django_cli_tool', 
     classifiers=[
         'Programming Language :: Python :: 3',
         'Framework :: Django',
