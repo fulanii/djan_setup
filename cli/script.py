@@ -1,7 +1,13 @@
 import os
 import subprocess
-from cli import Cli
-from console import console
+try:
+    # For when running as part of the package
+    from .console import console
+    from .cli import Cli
+except ImportError:
+    # For when running directly
+    from console import console
+    from cli import Cli
 
 def main():
     subprocess.run(["clear"])

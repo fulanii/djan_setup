@@ -3,7 +3,12 @@ import sys
 import subprocess
 import astor
 import ast
-from console import console
+try:
+    # For when running as part of the package
+    from .console import console
+except ImportError:
+    # For when running directly
+    from console import console
 
 
 class Cli:
