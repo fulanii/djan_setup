@@ -1,9 +1,7 @@
 import os
-from cli import Cli
 import subprocess
-from console import console
-
-
+from cli.cli import Cli
+from cli.console import console
 
 def main():
     subprocess.run(["clear"])
@@ -13,10 +11,8 @@ def main():
     app_name = console.input("Enter the [bold red]Django app[/] name: ")
 
     django_cli = Cli(project_name, app_name)
-    django_cli.main()
+    django_cli.entry()
 
 
-if __name__ == "__main__":
-    main()
-
-
+# if __name__ == "__main__":
+#     main()
