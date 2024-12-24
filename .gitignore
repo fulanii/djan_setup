@@ -1,7 +1,7 @@
 .DS_Store
 .python-version
-__pycache__/
-*.pyc
-*.pyo
+**__pycache__/
+**/*.pyc
+**/*.pyo
 **/project/
 **/app/
