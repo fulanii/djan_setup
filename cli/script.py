@@ -17,7 +17,7 @@ def main():
     app_name = console.input("Enter the [bold red]Django app[/] name: ")
 
     django_cli = Cli(project_name, app_name)
-    django_cli.entry()
+    django_cli.run_setup()
 
 
 if __name__ == "__main__":

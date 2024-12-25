@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='Django Project Setup Tool',
+    name='django_setup_cli',
     version='0.1.0',
     include_package_data=True,
     install_requires=[

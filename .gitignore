@@ -6,4 +6,4 @@
 **/project/
 **/app/
 django_cli_tool/
-Django_Project_Setup_Tool.egg-info/
+**.egg-info/
