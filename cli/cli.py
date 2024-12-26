@@ -244,6 +244,13 @@ elif ENVIRONMENT == "project.settings.development":
                 for i, new_node in enumerate(new_nodes):
                     tree.body.insert(last_import_index + 3 + i, new_node)
 
+                # Iterate over the AST nodes and add a blank line after assignments
+                for index, node in enumerate(tree.body):
+                    # Check if the node is an assignment (Store, Assignment or AugAssign)
+                    if isinstance(node, ast.Assign):
+                        # Insert a 'pass' node to simulate a blank line
+                        tree.body.insert(index + 1, "\n")
+
             # write the changes to the file, with indentation and spaces
             with open("base.py", "w") as file:
                 file.write(astor.to_source(tree))
