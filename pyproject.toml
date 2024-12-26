@@ -1,41 +1,33 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=6.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "django_setup"
-version = "0.1.0"
+name = "djang-setup"
+version = "0.0.2"
 description = "A CLI tool to set up Django projects for you"
-readme = "readme.md"
+readme = {file = "readme.md", content-type = "text/markdown"}
 requires-python = ">=3.6"
-license = { text = "MIT" }
 authors = [
     { name = "Yassine", email = "yassine@yassinecodes.dev" }
 ]
+license = { text = "MIT" }
 classifiers = [
     "Programming Language :: Python :: 3",
     "Framework :: Django",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent"
 ]
-keywords = ["Django", "CLI", "setup"]
-
 dependencies = [
-    "click",
-    "rich",
-    "black",
-    "astor"
+    "astor==0.8.1",
+    "black==24.10.0",
+    "click==8.1.8",
+    "rich==13.9.4",
+    "django-environ==0.11.2",
 ]
 
 [project.urls]
-Homepage = "https://github.com/fulanii/django_cli_tool"
-
-[tool.setuptools]
-packages = ["cli"]
-include_package_data = true
-
-[tool.setuptools.packages.find]
-include = ["cli", "cli.*"]
+Homepage = "https://github.com/fulanii/django_setup"
 
 [project.scripts]
-django_setup = "cli.script:main"
+djang-setup = "cli.script:main"

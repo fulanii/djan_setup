@@ -30,6 +30,6 @@ pip install django_setup
 
 3. run it
 ```bash
-django_setup
+djan_setup
 ```
 3. follow the prompt

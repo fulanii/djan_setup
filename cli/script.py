@@ -11,7 +11,7 @@ except ImportError:
 
 def main():
     subprocess.run(["clear"])
-    console.rule("Welcome to the Django project creator!")
+    console.rule("[bold red]Welcome to the Django project creator!")
 
     project_name = console.input("Enter the [bold red]Django project[/] name: ")
     app_name = console.input("Enter the [bold red]Django app[/] name: ")

@@ -43,7 +43,7 @@ class Cli:
                     check=True,
                 )
                 console.print(
-                    f"Django project '{self.django_project_name}' created successfully! ✅",
+                    f"\nDjango project '{self.django_project_name}' created successfully! ✅",
                     style="bold on blue",
                 )
                 return True
@@ -51,18 +51,7 @@ class Cli:
                 return False
             
         else:
-            console.print(f"Django project already exists. ❌", style="bold red")
-            return False
-
-    def _install_dependencies(self):
-        """
-        Install all needed dependency
-        return True is successful, False otherwise
-        """
-        try:
-            subprocess.run([sys.executable, "-m", "pip", "install", "--upgrade", "django-environ" ], check=True)
-            return True
-        except Exception as e:
+            console.print(f"\nDjango project already exists. ❌", style="bold red")
             return False
 
     def _create_app(self) -> bool:
@@ -79,7 +68,7 @@ class Cli:
                 check=True,
             )
             console.print(
-                f"Django app '{self.django_app_name}' created successfully! ✅",
+                f"\nDjango app '{self.django_app_name}' created successfully! ✅",
                 style="bold on blue",
             )
             return True
@@ -121,7 +110,7 @@ class Cli:
                 file.write("SECRET_KEY='' # generate and add new secret key using Django shell\n")
 
             console.print(
-                "Created requirements.txt, Readme, and .env files successfully! ✅",
+                "\nCreated requirements.txt, Readme, and .env files successfully! ✅",
                 style="bold on blue",
             )
             return True
@@ -157,7 +146,7 @@ class Cli:
             open("production.py", "a").close()
 
             console.print(
-                f"Django project '{self.django_project_name}' Settings folder and files created successfully! ✅",
+                f"\nDjango project '{self.django_project_name}' Settings folder and files created successfully! ✅",
                 style="bold on blue",
             )
             return True
@@ -258,7 +247,7 @@ elif ENVIRONMENT == "project.settings.development":
             # run black to format the code on base.py
             subprocess.run(["black", "base.py"], check=True)
             console.print(
-                f"Updated settings/base.py successfully! ✅", style="bold on blue"
+                f"\nUpdated settings/base.py successfully! ✅", style="bold on blue"
             )
             return True
         except Exception as e:
@@ -278,7 +267,7 @@ elif ENVIRONMENT == "project.settings.development":
                 file.write("from .base import *")
 
             console.print(
-                f"Updated settings/development.py successfully! ✅",
+                f"\nUpdated settings/development.py successfully! ✅",
                 style="bold on blue",
             )
             return True
@@ -310,7 +299,7 @@ elif ENVIRONMENT == "project.settings.development":
                 )
 
             console.print(
-                f"Updated settings/production.py successfully! ✅", style="bold on blue"
+                f"\nUpdated settings/production.py successfully! ✅", style="bold on blue"
             )
             return True
         except Exception as e:
@@ -331,7 +320,7 @@ elif ENVIRONMENT == "project.settings.development":
             open("urls.py", "w").close()
 
             console.print(
-                f"Created '{self.django_app_name}/urls.py' successfully! ✅",
+                f"\nCreated '{self.django_app_name}/urls.py' successfully! ✅",
                 style="bold on blue",
             )
             return True
@@ -379,7 +368,7 @@ elif ENVIRONMENT == "project.settings.development":
                 file.write(astor.to_source(tree))
 
             subprocess.run(["black", "urls.py"], check=True)
-            console.print(f"Added app urls to project urls.py successfully! ✅", style="bold on blue")
+            console.print(f"\nAdded app urls to project urls.py successfully! ✅", style="bold on blue")
             return True
         except Exception as e:
             return False
@@ -438,7 +427,7 @@ elif ENVIRONMENT == "project.settings.development":
                 file.write(astor.to_source(tree))
 
             subprocess.run(["black", "manage.py"], check=True)
-            console.print(f"Updated manage.py successfully! ✅", style="bold on blue")
+            console.print(f"\nUpdated manage.py successfully! ✅", style="bold on blue")
             return True
         except Exception as e:
             return False
@@ -448,7 +437,6 @@ elif ENVIRONMENT == "project.settings.development":
         steps = [
             (self._create_project),
             (self._create_app),
-            (self._install_dependencies),
             (self._create_settings),
             (self._update_base_setting),
             (self._update_dev_setting),
@@ -458,10 +446,13 @@ elif ENVIRONMENT == "project.settings.development":
             (self._add_app_urls_to_project_urls),
             (self._update_settings_path),
         ]
+        success = True
 
         for step in steps:
             result = step()
             if not result:
+                success = False
                 break
         
-        console.print("Make sure you set the env `SETTING_FILE_PATH` to `project.settings.development` (for your development enviroment)\n or `project.settings.production` (for your production enviroment) before running the server.")
+        if success:
+            console.print(f"\nMake sure you set the env 'SETTING_FILE_PATH' to '{self.django_project_name.settings.development}' (for your development enviroment)\nor '{self.django_project_name.settings.production}' (for your production enviroment) before running the server.", style="bold white on yellow")

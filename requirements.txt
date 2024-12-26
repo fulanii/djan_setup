@@ -1,12 +1,5 @@
 astor==0.8.1
 black==24.10.0
 click==8.1.8
-markdown-it-py==3.0.0
-mdurl==0.1.2
-mypy-extensions==1.0.0
-packaging==24.2
-pathspec==0.12.1
-platformdirs==4.3.6
-Pygments==2.18.0
 rich==13.9.4
-setuptools==75.6.0
+django-environ==0.11.2

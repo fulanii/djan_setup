@@ -1,18 +1,19 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='django_setup',
-    version='0.1.0',
+    name='djang-setup',
+    version='0.0.2',
     include_package_data=True,
     install_requires=[
-        'click',
-        'rich',
-        'black',
-        'astor',
+        "astor==0.8.1",
+        "black==24.10.0",
+        "click==8.1.8",
+        "rich==13.9.4",
+        "django-environ==0.11.2"
     ],
     entry_points={
         'console_scripts': [
-            'django_setup=cli.script:main',
+            'djang-setup=cli.script:main',
         ],
     },
     packages=find_packages(include=['cli', 'cli.*']),
