@@ -25,11 +25,12 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 2. install the package
 ```bash
-pip install django_setup
+pip install djang-setup
 ```
 
-3. run it
+3. run it and follow the prompt
 ```bash
 djan_setup
 ```
-3. follow the prompt
+
+![domo](./djang-setup-demo.gif)
