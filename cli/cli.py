@@ -455,4 +455,4 @@ elif ENVIRONMENT == "project.settings.development":
                 break
         
         if success:
-            console.print(f"\nMake sure you set the env 'SETTING_FILE_PATH' to '{self.django_project_name.settings.development}' (for your development enviroment)\nor '{self.django_project_name.settings.production}' (for your production enviroment) before running the server.", style="bold white on yellow")
+            console.print(f"\nMake sure you set the env 'SETTING_FILE_PATH' to '{self.django_project_name}.settings.development' (for your development enviroment)\nor '{self.django_project_name}.settings.production' (for your production enviroment) before running the server.", style="bold white on yellow")
