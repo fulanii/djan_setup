@@ -1,4 +1,4 @@
-# Django Boilerplate
+# Django Setup 
 A cli tool to setup django for you
 
 
@@ -13,11 +13,24 @@ A cli tool to setup django for you
 * creates `app_name/urls.py`
 * import `include` and add `app_name.urls` to `urlpatterns`
 * add app_name/urls.py to project_name/urls.py urlpatterns uisng `include()`
-
-
-<!-- ## Usage 
-pip  -->
-
-<!-- ## To add 
 * update prod settings in prod file
-* update django to use either env.dev or env.prod based on env var -->
+* update django to use either env.dev or env.prod based on env var
+
+## Usage
+
+1. Set up a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+2. install the package
+```bash
+pip install django_setup
+```
+
+3. run it
+```bash
+django_setup
+```
+3. follow the prompt

@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django_setup"
+version = "0.1.0"
+description = "A CLI tool to set up Django projects for you"
+readme = "readme.md"
+requires-python = ">=3.6"
+license = { text = "MIT" }
+authors = [
+    { name = "Yassine", email = "yassine@yassinecodes.dev" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Framework :: Django",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+keywords = ["Django", "CLI", "setup"]
+
+dependencies = [
+    "click",
+    "rich",
+    "black",
+    "astor"
+]
+
+[project.urls]
+Homepage = "https://github.com/fulanii/django_cli_tool"
+
+[tool.setuptools]
+packages = ["cli"]
+include_package_data = true
+
+[tool.setuptools.packages.find]
+include = ["cli", "cli.*"]
+
+[project.scripts]
+django_setup = "cli.script:main"

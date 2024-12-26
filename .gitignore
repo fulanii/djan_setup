@@ -8,3 +8,5 @@
 django_cli_tool/
 **.egg-info/
 djnago_cli_venv
+dist
+tests

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='django_setup_cli',
+    name='django_setup',
     version='0.1.0',
     include_package_data=True,
     install_requires=[
@@ -12,7 +12,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'new_django=cli.script:main',
+            'django_setup=cli.script:main',
         ],
     },
     packages=find_packages(include=['cli', 'cli.*']),
@@ -21,7 +21,7 @@ setup(
     description='A CLI tool to set up Django projects for you',
     long_description=open('readme.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/fulanii/django_cli_tool', 
+    url='https://github.com/fulanii/djnago_setup', 
     classifiers=[
         'Programming Language :: Python :: 3',
         'Framework :: Django',
