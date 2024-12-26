@@ -444,7 +444,7 @@ elif ENVIRONMENT == "project.settings.development":
             return False
 
     def run_setup(self):
-        """Main method that creates a Django project and app."""
+        """Main method that creates everything"""
         steps = [
             (self._create_project),
             (self._create_app),
@@ -463,3 +463,5 @@ elif ENVIRONMENT == "project.settings.development":
             result = step()
             if not result:
                 break
+        
+        console.print("Make sure you set the env `SETTING_FILE_PATH` to `project.settings.development` (for your development enviroment)\n or `project.settings.production` (for your production enviroment) before running the server.")

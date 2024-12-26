@@ -11,8 +11,7 @@ A cli tool to setup django for you
 * creates `.gitignore`, `.env.dev`, `.env,prod`, and `requirements.txt`
 * updates `INSTALLED_APPS`, `DEBUG`, `ALLOWED_HOST` and `BASE_DIR`
 * creates `app_name/urls.py`
-* import `include` and add `app_name.urls` to `urlpatterns`
-* add app_name/urls.py to project_name/urls.py urlpatterns uisng `include()`
+* add `app_name/urls.py` to `project_name/urls.py` urlpatterns uisng `include()`
 * update prod settings in prod file
 * update django to use either env.dev or env.prod based on env var
 
