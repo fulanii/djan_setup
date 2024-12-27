@@ -10,3 +10,4 @@ django_cli_tool/
 djnago_cli_venv
 dist
 tests
+.env
