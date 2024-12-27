@@ -34,3 +34,7 @@ djan_setup
 ```
 
 ![domo](./djang-setup-demo.gif)
+
+
+## Support
+* Star the project :)
