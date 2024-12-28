@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "djang-setup"
-version = "0.0.5"
+version = "0.0.6"
 description = "A CLI tool to set up Django projects for you"
 readme = {file = "readme.md", content-type = "text/markdown"}
 requires-python = ">=3.6"

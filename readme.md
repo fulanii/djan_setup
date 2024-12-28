@@ -30,7 +30,7 @@ pip install djang-setup
 
 3. run it and follow the prompt
 ```bash
-djan_setup
+djang-setup
 ```
 
 ![domo](./djang-setup-demo.gif)
