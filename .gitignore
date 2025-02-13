@@ -11,3 +11,4 @@ djnago_cli_venv
 dist
 tests
 .env
+tests/
