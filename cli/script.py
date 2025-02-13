@@ -10,7 +10,12 @@ except ImportError:
     from cli import Cli
 
 def main():
-    subprocess.run(["clear"])
+    if os.name == 'nt':
+        subprocess.run('cls', shell=True) # Windows
+    else:
+        subprocess.run('clear', shell=True) # Linux/MacOS
+    # subprocess.run(["clear"])
+
     console.rule("[bold red]Welcome to the Django project creator!")
 
     project_name = console.input("Enter the [bold red]Django project[/] name: ")
