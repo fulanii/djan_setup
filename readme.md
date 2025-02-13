@@ -1,7 +1,6 @@
 # Django Setup 
 A cli tool to setup django for you
 
-
 ## Features
 * install django if not already installed
 * creates django project
@@ -16,7 +15,6 @@ A cli tool to setup django for you
 * update django to use either env.dev or env.prod based on env var
 
 ## Usage
-
 1. Set up a virtual environment:
 ```bash
 python -m venv venv

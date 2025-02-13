@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='djang-setup',
-    version='0.0.6',
+    version='0.0.7',
     include_package_data=True,
     install_requires=[
         "astor==0.8.1",
